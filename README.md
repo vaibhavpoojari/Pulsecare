@@ -1,13 +1,13 @@
-# 🏥 PulseCare AI – AI-Powered Healthcare Management Platform
+# 🏥 PulseCare AI – Full-Stack AI-Powered Healthcare Management Platform
 
 <p align="center">
 
-![React](https://img.shields.io/badge/React-19-61DAFB?style=for-the-badge&logo=react)
-![Node.js](https://img.shields.io/badge/Node.js-Express-339933?style=for-the-badge&logo=node.js)
-![MongoDB](https://img.shields.io/badge/MongoDB-Database-47A248?style=for-the-badge&logo=mongodb)
-![Firebase](https://img.shields.io/badge/Firebase-Authentication-FFCA28?style=for-the-badge&logo=firebase)
-![Vite](https://img.shields.io/badge/Vite-7-646CFF?style=for-the-badge&logo=vite)
-![License](https://img.shields.io/badge/License-MIT-blue?style=for-the-badge)
+<img src="https://img.shields.io/badge/React-19-61DAFB?style=for-the-badge&logo=react" />
+<img src="https://img.shields.io/badge/Node.js-Express-339933?style=for-the-badge&logo=node.js" />
+<img src="https://img.shields.io/badge/MongoDB-47A248?style=for-the-badge&logo=mongodb" />
+<img src="https://img.shields.io/badge/Firebase-Authentication-FFCA28?style=for-the-badge&logo=firebase" />
+<img src="https://img.shields.io/badge/Vite-7-646CFF?style=for-the-badge&logo=vite" />
+<img src="https://img.shields.io/badge/TailwindCSS-38BDF8?style=for-the-badge&logo=tailwind-css" />
 
 </p>
 
@@ -16,24 +16,24 @@
 # 🌐 Live Demo
 
 ### 🚀 Frontend
-**https://pulsecare-ai-a06h.onrender.com**
 
-### ⚙️ Backend API
-**https://pulsecare-ai-backend.onrender.com**
+https://pulsecare-ai-a06h.onrender.com
 
----
+### ⚙ Backend API
 
-# 📖 About the Project
-
-PulseCare AI is a modern full-stack healthcare management platform that simplifies communication and healthcare workflows for **Patients, Doctors, and Pharmacists**.
-
-The platform combines secure authentication, AI-powered health assistance, appointment management, medication tracking, messaging, and health report generation through a modern responsive interface.
-
-This project was developed as a full-stack engineering project to demonstrate modern web development practices using React, Node.js, MongoDB, Firebase Authentication, and Express.js.
+https://pulsecare-ai-backend.onrender.com
 
 ---
 
-# ✨ Features
+# 📖 Overview
+
+PulseCare AI is a modern full-stack healthcare management platform developed to streamline healthcare services for **Patients, Doctors, and Pharmacists** through a secure, responsive, and AI-assisted web application.
+
+The platform integrates authentication, appointment management, health records, AI-powered assistance, medication tracking, messaging, and analytics into a single application while demonstrating modern full-stack development practices.
+
+---
+
+# ✨ Key Features
 
 ## 👤 Authentication
 
@@ -47,69 +47,70 @@ This project was developed as a full-stack engineering project to demonstrate mo
 
 ## 🩺 Patient Portal
 
-- Book Doctor Appointments
-- AI Health Assistant
-- Health Dashboard
+- Book Appointments
+- View Health Dashboard
 - Medication Reminder
 - Health Logs
-- Download PDF Medical Reports
-- Patient Profile Management
+- AI Health Assistant
+- Download Health Reports as PDF
+- Profile Management
 
 ---
 
 ## 👨‍⚕️ Doctor Portal
 
 - Doctor Dashboard
-- Appointment Overview
-- Patient Information
+- Patient Overview
+- Appointment Management
 - Clinical Statistics
-- Schedule Management
+- Schedule Overview
 
 ---
 
 ## 💊 Pharmacist Portal
 
-- Medicine Inventory
 - Prescription Management
+- Medicine Inventory
 - Pharmacy Dashboard
-- Medicine Availability Tracking
+- Medicine Availability
 
 ---
 
 ## 🤖 AI Features
 
-- AI Symptom Assistance
+- AI Health Assistant
+- Symptom Guidance
 - Health Recommendations
-- Wellness Suggestions
-- Medical Summary Generation
+- Medical Summary Assistance
 
 ---
 
-## 📊 Reports
+## 📊 Dashboard & Reports
 
-- PDF Health Report
-- Medical Summary Export
+- Interactive Charts
+- Patient Statistics
 - Health Analytics
+- PDF Report Generation
 
 ---
 
 ## 🎨 User Experience
 
-- Responsive Design
-- Dark / Light Theme
-- Glassmorphism UI
+- Fully Responsive Design
+- Dark / Light Mode
+- Modern Glassmorphism UI
 - Smooth Animations
 - Progressive Web App (PWA)
 
 ---
 
-# 🛠 Technology Stack
+# 🛠 Tech Stack
 
 ## Frontend
 
 - React 19
 - Vite
-- React Router v7
+- React Router
 - Tailwind CSS
 - Framer Motion
 - Chart.js
@@ -125,14 +126,13 @@ This project was developed as a full-stack engineering project to demonstrate mo
 - JWT
 - Socket.IO
 
-## Libraries
+## Additional Libraries
 
 - jsPDF
 - html2pdf.js
 - React Hot Toast
 - React Calendar
-- AOS
-- Chart.js
+- AOS Animation
 
 ---
 
@@ -147,19 +147,24 @@ PulseCare-AI
 │   ├── middleware
 │   ├── models
 │   ├── routes
-│   └── server.js
-│
-├── src
-│   ├── components
-│   ├── contexts
-│   ├── pages
-│   ├── services
-│   ├── hooks
-│   └── assets
+│   ├── server.js
+│   └── package.json
 │
 ├── public
 │
-└── README.md
+├── src
+│   ├── assets
+│   ├── components
+│   ├── contexts
+│   ├── hooks
+│   ├── pages
+│   ├── services
+│   └── utils
+│
+├── package.json
+├── vite.config.js
+├── README.md
+└── CONTRIBUTING.md
 ```
 
 ---
@@ -180,13 +185,22 @@ cd Pulsecare-AI
 
 ## Install Dependencies
 
+### Frontend
+
 ```bash
+npm install
+```
+
+### Backend
+
+```bash
+cd backend
 npm install
 ```
 
 ---
 
-## Start Frontend
+## Run Frontend
 
 ```bash
 npm run dev
@@ -194,13 +208,9 @@ npm run dev
 
 ---
 
-## Start Backend
+## Run Backend
 
 ```bash
-cd backend
-
-npm install
-
 npm start
 ```
 
@@ -211,18 +221,13 @@ npm start
 ### Frontend (.env)
 
 ```env
-VITE_API_URL=https://pulsecare-ai-backend.onrender.com
+VITE_API_URL=YOUR_BACKEND_URL
 
 VITE_FIREBASE_API_KEY=YOUR_API_KEY
-
-VITE_FIREBASE_AUTH_DOMAIN=YOUR_PROJECT
-
-VITE_FIREBASE_PROJECT_ID=YOUR_PROJECT
-
+VITE_FIREBASE_AUTH_DOMAIN=YOUR_PROJECT.firebaseapp.com
+VITE_FIREBASE_PROJECT_ID=YOUR_PROJECT_ID
 VITE_FIREBASE_STORAGE_BUCKET=YOUR_BUCKET
-
-VITE_FIREBASE_MESSAGING_SENDER_ID=YOUR_ID
-
+VITE_FIREBASE_MESSAGING_SENDER_ID=YOUR_SENDER_ID
 VITE_FIREBASE_APP_ID=YOUR_APP_ID
 ```
 
@@ -233,18 +238,18 @@ VITE_FIREBASE_APP_ID=YOUR_APP_ID
 ```env
 PORT=5000
 
-MONGO_URI=YOUR_MONGODB_URI
+MONGO_URI=YOUR_MONGODB_CONNECTION_STRING
 
-JWT_SECRET=YOUR_SECRET
+JWT_SECRET=YOUR_SECRET_KEY
 
 EMAIL=YOUR_EMAIL
 
-EMAIL_PASSWORD=YOUR_PASSWORD
+EMAIL_PASSWORD=YOUR_EMAIL_PASSWORD
 ```
 
 ---
 
-# 📸 Main Modules
+# 📸 Project Modules
 
 - Authentication
 - Patient Dashboard
@@ -252,11 +257,11 @@ EMAIL_PASSWORD=YOUR_PASSWORD
 - Pharmacist Dashboard
 - Appointment Booking
 - AI Health Assistant
-- Medication Reminder
-- Messaging
 - Health Logs
+- Medication Reminder
 - PDF Report Generation
-- Profile Management
+- Messaging
+- User Profile Management
 
 ---
 
@@ -265,30 +270,10 @@ EMAIL_PASSWORD=YOUR_PASSWORD
 - Real-Time Appointment Synchronization
 - Video Consultation
 - Electronic Medical Records (EMR)
-- Notification Service
-- Online Payments
+- Online Payment Integration
+- Push Notifications
 - AI Disease Prediction
 - Mobile Application
-
----
-
-# 💻 Developer
-
-## Vaibhava G
-
-Computer Science Engineering Student
-
-📧 Email
-
-**vaibhavg8121@gmail.com**
-
-📱 Phone
-
-**+91 9731971568**
-
-🐙 GitHub
-
-**https://github.com/vaibhavpoojari**
 
 ---
 
@@ -301,49 +286,61 @@ Contributions are welcome.
 2. Create a new branch
 
 ```bash
-git checkout -b feature-name
+git checkout -b feature/feature-name
 ```
 
 3. Commit your changes
 
 ```bash
-git commit -m "Added new feature"
+git commit -m "Add new feature"
 ```
 
-4. Push to GitHub
+4. Push your branch
 
 ```bash
-git push origin feature-name
+git push origin feature/feature-name
 ```
 
 5. Open a Pull Request
 
 ---
 
-# ⭐ Support
+# 👨‍💻 Developer
 
-If you like this project,
+## Vaibhava G
 
-⭐ Star this repository
+Computer Science Engineering Student
 
-🍴 Fork this repository
+📧 Email
 
-💙 Share it with others
+vaibhavg8121@gmail.com
+
+📱 Phone
+
++91 9731971568
+
+🐙 GitHub
+
+https://github.com/vaibhavpoojari
 
 ---
 
-# 📄 License
+# ⭐ Support
 
-This project is licensed under the MIT License.
+If you found this project helpful,
+
+⭐ Star the repository
+
+🍴 Fork the repository
+
+🤝 Contributions are welcome.
 
 ---
 
 <p align="center">
 
-### ❤️ Developed with React, Node.js & AI
+## ❤️ PulseCare AI
 
-## © 2026 PulseCare AI
-
-**Developed by Vaibhava G**
+Developed by **Vaibhava G**
 
 </p>
