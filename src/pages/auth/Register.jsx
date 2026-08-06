@@ -236,33 +236,33 @@ const Register = () => {
     }
   };
 
-const handleGoogleSignup = async () => {
-  try {
-    setLoading(true);
+  const handleGoogleSignup = async () => {
+    try {
+      setLoading(true);
 
-    // Directly sign in/up with Google
-    const user = await signInWithGoogle(); // This returns Firebase user
+      // Directly sign in/up with Google
+      const user = await signInWithGoogle(); // This returns Firebase user
 
-    // Show success toast
-    toast.success(t("register.googleSuccess"), {
-      duration: 3000,
-      icon: "🎉",
-    });
+      // Show success toast
+      toast.success(t("register.googleSuccess"), {
+        duration: 3000,
+        icon: "🎉",
+      });
 
-    // Navigate to home or dashboard directly
-   
-        navigate(`/${user.role}`) 
-      
- 
+      // Navigate to home or dashboard directly
 
-  } catch (error) {
-    // Show error toast
-    const errorMessage = t("register.errors.googleFailed", { msg: error.message });
-    toast.error(errorMessage, { duration: 4000, icon: "❌" });
-  } finally {
-    setLoading(false);
-  }
-};
+      navigate(`/${user.role}`)
+
+
+
+    } catch (error) {
+      // Show error toast
+      const errorMessage = t("register.errors.googleFailed", { msg: error.message });
+      toast.error(errorMessage, { duration: 4000, icon: "❌" });
+    } finally {
+      setLoading(false);
+    }
+  };
 
 
   const containerVariants = { hidden: { opacity: 0, scale: 0.95 }, visible: { opacity: 1, scale: 1, transition: { duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94], staggerChildren: 0.08 } } };
@@ -475,11 +475,10 @@ const handleGoogleSignup = async () => {
                       key={r.id}
                       type="button"
                       onClick={() => setFormData((prev) => ({ ...prev, role: r.id }))}
-                      className={`py-2 px-1 text-center rounded-xl text-xs font-bold transition border ${
-                        formData.role === r.id
+                      className={`py-2 px-1 text-center rounded-xl text-xs font-bold transition border ${formData.role === r.id
                           ? "bg-emerald-600 text-white border-emerald-600 shadow-md"
                           : "bg-slate-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 border-slate-200 dark:border-gray-700 hover:border-emerald-400"
-                      }`}
+                        }`}
                     >
                       {r.label}
                     </button>
@@ -571,6 +570,27 @@ const handleGoogleSignup = async () => {
                     {showPassword ? <EyeSlashIcon className="w-4 h-4" /> : <EyeIcon className="w-4 h-4" />}
                   </button>
                 </div>
+              </div>
+              <div className="mt-3 text-sm space-y-1">
+                <p className={passwordValidity.length ? "text-green-600" : "text-red-500"}>
+                  {passwordValidity.length ? "✅" : "❌"} Minimum 8 characters
+                </p>
+
+                <p className={passwordValidity.uppercase ? "text-green-600" : "text-red-500"}>
+                  {passwordValidity.uppercase ? "✅" : "❌"} One uppercase letter
+                </p>
+
+                <p className={passwordValidity.lowercase ? "text-green-600" : "text-red-500"}>
+                  {passwordValidity.lowercase ? "✅" : "❌"} One lowercase letter
+                </p>
+
+                <p className={passwordValidity.number ? "text-green-600" : "text-red-500"}>
+                  {passwordValidity.number ? "✅" : "❌"} One number
+                </p>
+
+                <p className={passwordValidity.special ? "text-green-600" : "text-red-500"}>
+                  {passwordValidity.special ? "✅" : "❌"} One special character
+                </p>
               </div>
 
               {/* Confirm Password */}
