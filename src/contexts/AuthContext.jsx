@@ -186,9 +186,8 @@ export const AuthProvider = ({ children }) => {
   const login = async (email, password, role) => {
     setLoading(true);
     try {
-      const response = await fetch(
-        "https://pulsecare-ai-backend.onrender.com/api/auth/me", {
-        method: 'POST',
+      const response = await fetch("https://pulsecare-ai-backend.onrender.com/api/auth/login", {
+        method: "POST",
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email, password }),
       });
@@ -225,7 +224,7 @@ export const AuthProvider = ({ children }) => {
     const { firstName, lastName, email, password, role = "patient" } = userData;
     try {
       const response = await fetch(
-        "https://pulsecare-ai-backend.onrender.com/api/auth/me", {
+        "https://pulsecare-ai-backend.onrender.com/api/auth/register", {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
