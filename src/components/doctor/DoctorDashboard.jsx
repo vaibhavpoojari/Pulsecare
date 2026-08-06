@@ -20,9 +20,7 @@ const DoctorDashboard = () => {
   const { appointments } = useAppointments();
   const location = useLocation();
 
-  const doctorAppointments = appointments.filter(
-    (apt) => apt.doctorId === user.id
-  );
+  const doctorAppointments = appointments;
 
   const pendingAppointments = doctorAppointments.filter(
     (apt) => apt.status === "Pending"
@@ -182,8 +180,8 @@ const DashboardOverview = ({
           value={
             appointments.length > 0
               ? `${Math.round(
-                  (confirmedAppointments.length / appointments.length) * 100
-                )}%`
+                (confirmedAppointments.length / appointments.length) * 100
+              )}%`
               : "0%"
           }
           description="Percentage of confirmed patient bookings."
