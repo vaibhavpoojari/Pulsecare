@@ -17,7 +17,7 @@ JWT_SECRET=your_secret_key
 
 ## Health Check
 Open in your browser: \
-http://localhost:5000/health 
+https://pulsecare-ai-backend.onrender.com/health 
 
 You should see: \
 ` { "status": "Backend is running" }`

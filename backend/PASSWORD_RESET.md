@@ -83,15 +83,15 @@ Response:
 4. **Test the Flow**:
    ```bash
    # Test forgot password
-   curl -X POST http://localhost:5000/api/auth/forgot-password \
+   curl -X POST https://pulsecare-ai-backend.onrender.com/api/auth/forgot-password \
      -H "Content-Type: application/json" \
      -d '{"email":"test@example.com"}'
 
    # Test token verification
-   curl http://localhost:5000/api/auth/verify-reset-token/YOUR_TOKEN
+   curl https://pulsecare-ai-backend.onrender.com/api/auth/verify-reset-token/YOUR_TOKEN
 
    # Test password reset
-   curl -X POST http://localhost:5000/api/auth/reset-password/YOUR_TOKEN \
+   curl -X POST https://pulsecare-ai-backend.onrender.com/api/auth/reset-password/YOUR_TOKEN \
      -H "Content-Type: application/json" \
      -d '{"password":"newSecurePassword123"}'
    ```

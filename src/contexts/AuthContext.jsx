@@ -71,7 +71,8 @@ export const AuthProvider = ({ children }) => {
         if (token && storedUser) {
           // Verify token with backend
           try {
-            const response = await fetch('http://localhost:5000/api/auth/me', {
+            const response = await fetch(
+              "https://pulsecare-ai-backend.onrender.com/api/auth/me", {
               headers: { 'Authorization': `Bearer ${token}` },
             });
             if (response.ok) {
@@ -185,7 +186,8 @@ export const AuthProvider = ({ children }) => {
   const login = async (email, password, role) => {
     setLoading(true);
     try {
-      const response = await fetch('http://localhost:5000/api/auth/login', {
+      const response = await fetch(
+        "https://pulsecare-ai-backend.onrender.com/api/auth/me", {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email, password }),
@@ -196,12 +198,12 @@ export const AuthProvider = ({ children }) => {
       }
       // Store JWT token
       localStorage.setItem('token', data.token);
-      
+
       // Create user object with role from backend response
-      const backendUser = { 
-        ...data.user, 
+      const backendUser = {
+        ...data.user,
         role: data.user.role || role || 'patient', // Use backend role first, then provided role, then default
-        isBackendUser: true 
+        isBackendUser: true
 
       };
       console.log("Setting user in context:", backendUser);
@@ -222,7 +224,8 @@ export const AuthProvider = ({ children }) => {
     setLoading(true);
     const { firstName, lastName, email, password, role = "patient" } = userData;
     try {
-      const response = await fetch('http://localhost:5000/api/auth/register', {
+      const response = await fetch(
+        "https://pulsecare-ai-backend.onrender.com/api/auth/me", {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -254,7 +257,7 @@ export const AuthProvider = ({ children }) => {
       setLoading(false);
     }
   };
-  
+
   // 2. Add the resetPassword function
   const resetPassword = (email) => {
     return sendPasswordResetEmail(auth, email);

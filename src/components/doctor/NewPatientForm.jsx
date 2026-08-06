@@ -33,7 +33,7 @@ const NewPatientForm = () => {
     try {
       setSubmitting(true);
       const token = localStorage.getItem("token");
-      const res = await fetch("http://localhost:5000/api/patients", {
+      const res = await fetch("https://pulsecare-ai-backend.onrender.com/api/patients", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

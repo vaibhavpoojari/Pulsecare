@@ -156,7 +156,7 @@ describe('AuthContext', () => {
 
       await waitFor(() => {
         expect(global.fetch).toHaveBeenCalledWith(
-          'http://localhost:5000/api/auth/login',
+          'https://pulsecare-ai-backend.onrender.com/api/auth/login',
           expect.objectContaining({
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
@@ -179,7 +179,7 @@ describe('AuthContext', () => {
 
       await waitFor(() => {
         expect(global.fetch).toHaveBeenCalledWith(
-          'http://localhost:5000/api/auth/register',
+          'https://pulsecare-ai-backend.onrender.com/api/auth/register',
           expect.objectContaining({
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },

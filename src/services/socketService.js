@@ -12,7 +12,7 @@ class SocketService {
       this.disconnect();
     }
 
-    this.socket = io(import.meta.env.VITE_API_URL || 'http://localhost:5000', {
+    this.socket = io(import.meta.env.VITE_API_URL || 'https://pulsecare-ai-backend.onrender.com', {
       auth: {
         token: token
       },
