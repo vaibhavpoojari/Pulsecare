@@ -69,28 +69,11 @@ export const AuthProvider = ({ children }) => {
         const token = localStorage.getItem("token");
         const storedUser = localStorage.getItem("healthconnect_user");
         if (token && storedUser) {
-          // Verify token with backend
-          try {
-            const response = await fetch(
-              "https://pulsecare-ai-backend.onrender.com/api/auth/me", {
-              headers: { 'Authorization': `Bearer ${token}` },
-            });
-            if (response.ok) {
-              const userData = JSON.parse(storedUser);
-              console.log("Found and verified stored user:", userData);
-              setUser(userData);
-            } else {
-              // Token is invalid, clear storage
-              console.log("Token verification failed, clearing storage");
-              localStorage.removeItem("token");
-              localStorage.removeItem("healthconnect_user");
-            }
-          } catch (error) {
-            console.error("Error verifying token:", error);
-            localStorage.removeItem("token");
-            localStorage.removeItem("healthconnect_user");
-          }
-        } else if (storedUser) {
+          const userData = JSON.parse(storedUser);
+          console.log("Restored stored user:", userData);
+          setUser(userData);
+        }
+        else if (storedUser) {
           // Legacy local user without backend auth
           const userData = JSON.parse(storedUser);
           if (!userData.isBackendUser) {
