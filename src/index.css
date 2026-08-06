@@ -1,0 +1,300 @@
+@import "aos/dist/aos.css";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom base styles */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* Scroll offset for fixed navbar */
+  section[id] {
+    scroll-margin-top: 5rem;
+  }
+
+  body {
+    @apply text-gray-900 bg-gray-50 dark:text-gray-100 dark:bg-gray-950;
+  }
+  html,
+  body {
+    cursor: url("/cursors/custuomCursor.cur"), auto;
+  }
+
+  button,
+  a {
+    cursor: url("/cursors/custompointer.cur"), pointer;
+  }
+
+  /* Toast notification variables for dark mode support */
+  :root {
+    --toast-bg: #ffffff;
+    --toast-color: #333333;
+    --toast-border: #e5e7eb;
+  }
+
+  .dark {
+    --toast-bg: #1f2937;
+    --toast-color: #f9fafb;
+    --toast-border: #374151;
+  }
+
+  body.no-scroll {
+    overflow: hidden;
+    position: fixed;
+    width: 100%;
+  }
+
+  /* Dark mode select dropdown styling - more specific rules */
+  select {
+    @apply bg-white text-gray-900;
+  }
+
+  .dark select {
+    @apply bg-gray-700 text-gray-100;
+  }
+
+  select option {
+    @apply bg-white text-gray-900;
+  }
+
+  .dark select option {
+    @apply bg-gray-700 text-gray-100;
+  }
+
+  /* Force dark mode on select elements */
+  .dark select,
+  .dark select:focus,
+  .dark select:hover {
+    background-color: rgb(55 65 81) !important;
+    color: rgb(243 244 246) !important;
+  }
+
+  .dark select option {
+    background-color: rgb(55 65 81) !important;
+    color: rgb(243 244 246) !important;
+  }
+}
+
+/* Custom component styles for HealthConnect */
+@layer components {
+  /* Color System Tokens */
+  .text-default {
+    @apply text-gray-900 dark:text-gray-100 font-sans;
+  }
+  .text-muted {
+    @apply text-gray-600 dark:text-gray-400 font-sans;
+  }
+  .text-primary {
+    @apply text-emerald-600 dark:text-emerald-400 font-heading;
+  }
+  .text-medical {
+    @apply text-teal-600 dark:text-teal-400 font-heading;
+  }
+
+  /* Font utilities */
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Outfit', 'Plus Jakarta Sans', sans-serif;
+  }
+  body, p, span, button, input, select, textarea {
+    font-family: 'Plus Jakarta Sans', 'Inter', sans-serif;
+  }
+
+  /* Glassmorphism & Background System */
+  .glass-card {
+    @apply bg-white/90 dark:bg-gray-900/90 backdrop-blur-xl border border-gray-200/80 dark:border-gray-800/80 shadow-glass rounded-2xl transition-all duration-300;
+  }
+  .glass-card-hover {
+    @apply hover:shadow-glow hover:border-emerald-500/50 hover:-translate-y-0.5;
+  }
+
+  .bg-surface {
+    @apply bg-white dark:bg-gray-900;
+  }
+  .bg-surface-hover {
+    @apply hover:bg-emerald-50/50 dark:hover:bg-gray-800/50;
+  }
+  .bg-subtle {
+    @apply bg-slate-50/80 dark:bg-slate-950;
+  }
+
+  /* Border System */
+  .border-subtle {
+    @apply border-slate-200/80 dark:border-slate-800/80;
+  }
+  .border-primary {
+    @apply border-emerald-500 dark:border-emerald-400;
+  }
+
+  /* Form System */
+  .input-base {
+    @apply w-full px-4 py-3 bg-white dark:bg-gray-900 border border-slate-200 dark:border-slate-800 rounded-xl 
+    text-gray-900 dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-500
+    focus:outline-none focus:ring-2 focus:ring-emerald-500/50 focus:border-emerald-500 
+    dark:focus:ring-emerald-400/50 dark:focus:border-emerald-400 transition-all duration-200
+    disabled:bg-slate-100 dark:disabled:bg-slate-800/50 disabled:cursor-not-allowed;
+  }
+
+  .input-error {
+    @apply border-rose-500 dark:border-rose-400 focus:ring-rose-500 focus:border-rose-500;
+  }
+
+  .input-success {
+    @apply border-emerald-500 dark:border-emerald-400 focus:ring-emerald-500 focus:border-emerald-500;
+  }
+
+  .label-base {
+    @apply block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-1.5;
+  }
+
+  .error-text {
+    @apply mt-1 text-sm text-rose-600 dark:text-rose-400 font-medium;
+  }
+
+  .helper-text {
+    @apply mt-1 text-sm text-slate-500 dark:text-slate-400;
+  }
+
+  /* Status Colors */
+  .status-success {
+    @apply bg-emerald-100/80 text-emerald-800 dark:bg-emerald-950/40 dark:text-emerald-300 font-medium px-2.5 py-1 rounded-full text-xs border border-emerald-200 dark:border-emerald-800/50;
+  }
+  .status-warning {
+    @apply bg-amber-100/80 text-amber-800 dark:bg-amber-950/40 dark:text-amber-300 font-medium px-2.5 py-1 rounded-full text-xs border border-amber-200 dark:border-amber-800/50;
+  }
+  .status-error {
+    @apply bg-rose-100/80 text-rose-800 dark:bg-rose-950/40 dark:text-rose-300 font-medium px-2.5 py-1 rounded-full text-xs border border-rose-200 dark:border-rose-800/50;
+  }
+  .status-info {
+    @apply bg-teal-100/80 text-teal-800 dark:bg-teal-950/40 dark:text-teal-300 font-medium px-2.5 py-1 rounded-full text-xs border border-teal-200 dark:border-teal-800/50;
+  }
+
+  /* Button System */
+  .btn-primary {
+    @apply px-5 py-2.5 bg-gradient-to-r from-emerald-600 to-teal-600 text-white font-semibold rounded-xl hover:from-emerald-700 hover:to-teal-700 focus:outline-none focus:ring-2 focus:ring-emerald-500/50 shadow-md hover:shadow-lg transition-all duration-200;
+  }
+
+  .btn-secondary {
+    @apply px-5 py-2.5 bg-slate-100 text-slate-800 font-semibold rounded-xl hover:bg-slate-200 focus:outline-none focus:ring-2 focus:ring-slate-400 transition-all duration-200 dark:bg-slate-800 dark:text-slate-200 dark:hover:bg-slate-700;
+  }
+
+  .card {
+    @apply glass-card p-6;
+  }
+
+  .input-field {
+    @apply input-base;
+  }
+
+  /* Form Fields */
+  .form-group {
+    @apply mb-4;
+  }
+
+  .form-label {
+    @apply label-base;
+  }
+
+  .form-helper {
+    @apply helper-text;
+  }
+
+  .form-error {
+    @apply error-text;
+  }
+
+  /* --- Color System Tokens (Issue #71) ---------------------------------- */
+  /* Keep existing visual palette; provide single-source utility classes
+     to replace scattered gradient/color repetitions without altering hues. */
+  .gradient-accent {
+    @apply bg-gradient-to-r from-emerald-500 to-teal-600 text-white hover:from-emerald-600 hover:to-teal-700;
+  }
+  .gradient-accent-alt {
+    @apply bg-gradient-to-r from-green-600 to-emerald-600 text-white hover:from-green-700 hover:to-emerald-700;
+  }
+  .btn-accent-gradient {
+    @apply gradient-accent px-4 py-2 rounded-lg font-semibold transition-all duration-200 shadow-md hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-emerald-500;
+  }
+  .btn-accent-gradient-alt {
+    @apply gradient-accent-alt px-6 py-3 rounded-xl font-medium transition-all duration-200 shadow-lg hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-emerald-600;
+  }
+  /* ---------------------------------------------------------------------- */
+
+  /* Healthcare-specific styles */
+  .status-normal {
+    @apply bg-green-100 text-green-800 px-2 py-1 text-xs font-medium rounded-full dark:bg-green-900/30 dark:text-green-300;
+  }
+
+  .status-warning {
+    @apply bg-yellow-100 text-yellow-800 px-2 py-1 text-xs font-medium rounded-full dark:bg-yellow-900/30 dark:text-yellow-300;
+  }
+
+  .status-critical {
+    @apply bg-red-100 text-red-800 px-2 py-1 text-xs font-medium rounded-full dark:bg-red-900/30 dark:text-red-300;
+  }
+
+  .prescription-card {
+    @apply bg-white rounded-lg shadow-sm border border-gray-200 hover:shadow-md transition-shadow dark:bg-gray-800 dark:border-gray-700;
+  }
+
+  .medicine-tag {
+    @apply inline-block bg-medical-50 text-medical-700 px-2 py-1 rounded-md text-sm mr-2 mb-1 dark:bg-medical-900/20 dark:text-medical-200;
+  }
+}
+
+/* Custom utilities */
+@layer utilities {
+  .animate-fade-in {
+    animation: fadeIn 0.3s ease-out;
+  }
+
+  .spinner {
+    @apply inline-block w-4 h-4 border-2 border-current border-r-transparent rounded-full animate-spin;
+  }
+
+  .custom-scrollbar {
+    scrollbar-width: thin;
+    scrollbar-color: rgb(156 163 175) rgb(243 244 246);
+  }
+
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-track {
+    @apply bg-gray-100 dark:bg-gray-900;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    @apply bg-gray-400 rounded-full dark:bg-gray-700;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    @apply bg-gray-500 dark:bg-gray-600;
+  }
+}
+
+/* Custom animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Print styles for prescriptions */
+@media print {
+  .no-print {
+    display: none !important;
+  }
+
+  .prescription-card {
+    @apply shadow-none border-2 border-gray-300;
+    break-inside: avoid;
+  }
+}
